@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
-
 
 import numpy as np
 import pandas as pd
@@ -28,9 +26,6 @@ print("BIOMARKER CLASSIFICATION PIPELINE")
 print("="*80)
 
 
-# In[3]:
-
-
 # DATA LOADING
 
 print("\nLoading Dataset...")
@@ -52,9 +47,6 @@ print(f"\nFeature Statistics:")
 print(X.describe().iloc[:, :5])
 
 print(f"\nMissing Values: {X.isnull().sum().sum()}")
-
-
-# In[4]:
 
 
 # DATA PREPROCESSING
@@ -97,9 +89,6 @@ X_test_scaled = pd.DataFrame(X_test_scaled, columns=X.columns)
 print("\nStandardScaler Applied.")
 
 
-# In[5]:
-
-
 # HNADLING CLASS IMBALANCE
 
 print("\nHandling Class Imbalance...")
@@ -127,9 +116,6 @@ adasyn = ADASYN(random_state=42, n_neighbors=5)
 X_adasyn, y_adasyn = adasyn.fit_resample(X_train_scaled, y_train)
 augmentation_strategies['ADASYN'] = (X_adasyn, y_adasyn)
 print(f"  After ADASYN: {pd.Series(y_adasyn).value_counts().to_dict()}")
-
-
-# In[6]:
 
 
 # MODEL TRAINING
@@ -173,9 +159,6 @@ for aug_name, (X_aug, y_aug) in augmentation_strategies.items():
         print(f"ROC-AUC: {roc_auc:.3f}")
 
 
-# In[7]:
-
-
 # MODEL EVALUATION
 
 print("\nModel Evaluation...")
@@ -216,9 +199,6 @@ print(f"\nTrue Positive: {cm[1,0]}")
 print(f"\nFalse Positive: {cm[1,1]}")
 
 
-# In[8]:
-
-
 # FEATURE IMPORTANCE
 
 print("\nFeature Importance Analysis...")
@@ -236,9 +216,6 @@ if best_model_name in ['Random_Forest', 'XGBoost']:
     top_features = feature_importance.head(15)['Feature'].tolist()
 
 print("done.")
-
-
-# In[13]:
 
 
 # VISUALISATION
@@ -340,9 +317,6 @@ plt.savefig('biomarker_classification_results.png', dpi=300, bbox_inches='tight'
 print("\nVisualization saved as 'biomarker_classification_results.png'")
 
 
-# In[10]:
-
-
 # CROSS-VALIDATION
 
 print("\nCross-Validation...")
@@ -357,9 +331,6 @@ print(f"ROC-AUC Scores: {[f'{score:.4f}' for score in cv_scores]}")
 print(f"Mean ROC-AUC: {cv_scores.mean():.4f} (+/- {cv_scores.std() * 2:.4f})")
 
 
-# In[11]:
-
-
 # SAVE RESULTS
 
 results_df.to_csv('model_comparision_results.csv', index=False)
@@ -369,8 +340,6 @@ print("\n" + "="*80)
 print("Biomarker Classification Completed.")
 print("="*80)
 
-
-# In[ ]:
 
 
 
