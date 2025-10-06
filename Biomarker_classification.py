@@ -21,10 +21,6 @@ warnings.filterwarnings('ignore')
 sns.set_style("whitegrid")
 plt.rcParams['figure.figsize'] = (12,6)
 
-print("="*80)
-print("BIOMARKER CLASSIFICATION PIPELINE")
-print("="*80)
-
 
 # DATA LOADING
 
