@@ -262,32 +262,28 @@ ax4.grid(True, alpha=0.3)
 # 5: Feature Importance Bar Chart
 ax5 = plt.subplot(2, 3, 5)
 if best_model_name in ['Random_Forest', 'XGBoost']:
-    top_15 = feature_importance.head(15)  # Get top 15 features
+    top_15 = feature_importance.head(15) 
     
-    # Create horizontal bar chart
     ax5.barh(range(len(top_15)), top_15['Importance'], color='steelblue')
     ax5.set_yticks(range(len(top_15)))
     ax5.set_yticklabels(top_15['Feature'], fontsize=8)
     ax5.set_xlabel('Importance Score')
     ax5.set_title('Top 15 Features by Importance', fontsize=12, fontweight='bold')
-    ax5.invert_yaxis()  # Highest importance at top
+    ax5.invert_yaxis() 
 else:
-    # For Logistic Regression, show coefficient magnitudes
-    # Get absolute values of coefficients (weights)
     coefficients = pd.DataFrame({
         'Feature': X.columns,
-        'Coefficient': np.abs(best_model.coef_[0])  # Absolute value of weights
+        'Coefficient': np.abs(best_model.coef_[0]) 
     }).sort_values('Coefficient', ascending=False)
     
     top_15_coef = coefficients.head(15)
     
-    # Create horizontal bar chart
     ax5.barh(range(len(top_15_coef)), top_15_coef['Coefficient'], color='coral')
     ax5.set_yticks(range(len(top_15_coef)))
     ax5.set_yticklabels(top_15_coef['Feature'], fontsize=8)
     ax5.set_xlabel('Coefficient Magnitude')
     ax5.set_title('Top 15 Features by Coefficient', fontsize=12, fontweight='bold')
-    ax5.invert_yaxis()  # Highest coefficient at top
+    ax5.invert_yaxis()  
 
 # 6. Performance Metrics
 ax6 = plt.subplot(2,3,6)
