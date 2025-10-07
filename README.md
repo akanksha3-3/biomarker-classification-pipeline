@@ -157,12 +157,6 @@ adasyn = ADASYN(random_state=42, n_neighbors=5)  # Adjust n_neighbors
 └── README.md                           # This file
 ```
 
-## ⚠️ Important Notes
-
-- **Medical Context**: This is a demonstration project. Real medical applications require extensive validation and regulatory approval.
-- **Class Imbalance**: The artificial 90:10 imbalance simulates real-world scenarios where certain conditions are rare.
-- **Feature Scaling**: StandardScaler is applied to ensure fair comparison across features.
-
 ## 🔬 Technical Details
 
 ### Data Split
@@ -175,9 +169,7 @@ adasyn = ADASYN(random_state=42, n_neighbors=5)  # Adjust n_neighbors
 - **Recall**: Prioritized for medical diagnosis (minimize false negatives)
 - **Precision**: Balanced with recall for overall performance
 
-## 🤝 Contributing
-
-Contributions are welcome! Areas for improvement:
+Areas for improvement:
 - Additional augmentation techniques
 - Deep learning models
 - Hyperparameter optimization
