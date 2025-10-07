@@ -1,4 +1,4 @@
-# 🧬 Biomarker Classification Pipeline
+# 🧬 Breast Cancer Classification Pipeline
 
 A comprehensive machine learning pipeline for breast cancer biomarker classification using multiple algorithms and data augmentation techniques to handle class imbalance.
 
